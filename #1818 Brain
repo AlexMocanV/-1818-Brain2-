@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+std::ifstream fin("brain.in");
+std::ofstream fout("brain.out");
+std::vector<int>v;
+long long maxi=0;
+int main()
+{
+    int n,x;
+    fin>>n;
+    v.reserve(100000);
+    for(int i=1;i<=n;i++)
+    {
+        fin>>x;
+        if(x==i)
+        {
+            v.push_back(x);
+            maxi+=x;
+            fout<<x<<' ';
+        }
+    }
+    fout<<'\n'<<maxi<<'\n';
+    long long i=0,mini=1;
+    while(v[i]<=mini&&i<v.size())
+            mini+=v[i++];
+            
+    fout<<mini;
+    return 0;
+}
